@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB35804723B8EE6700684B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35804623B8EE6700684B11 /* AppDelegate.swift */; };
+		DB35804923B8EE6700684B11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35804823B8EE6700684B11 /* SceneDelegate.swift */; };
+		DB35804B23B8EE6700684B11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35804A23B8EE6700684B11 /* ContentView.swift */; };
+		DB35804D23B8EE6800684B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB35804C23B8EE6800684B11 /* Assets.xcassets */; };
+		DB35805023B8EE6800684B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB35804F23B8EE6800684B11 /* Preview Assets.xcassets */; };
+		DB35805323B8EE6800684B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB35805123B8EE6800684B11 /* LaunchScreen.storyboard */; };
+		DB35805823B8EE6900684B11 /* SleepyWatcher WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DB35805723B8EE6900684B11 /* SleepyWatcher WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DB35805E23B8EE6900684B11 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB35805C23B8EE6900684B11 /* Interface.storyboard */; };
+		DB35806023B8EE6900684B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB35805F23B8EE6900684B11 /* Assets.xcassets */; };
+		DB35806723B8EE6900684B11 /* SleepyWatcher WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DB35806623B8EE6900684B11 /* SleepyWatcher WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DB35806C23B8EE6900684B11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35806B23B8EE6900684B11 /* ContentView.swift */; };
+		DB35806E23B8EE6900684B11 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35806D23B8EE6900684B11 /* HostingController.swift */; };
+		DB35807023B8EE6900684B11 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35806F23B8EE6900684B11 /* ExtensionDelegate.swift */; };
+		DB35807223B8EE6900684B11 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35807123B8EE6900684B11 /* NotificationController.swift */; };
+		DB35807423B8EE6900684B11 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35807323B8EE6900684B11 /* NotificationView.swift */; };
+		DB35807623B8EE6A00684B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB35807523B8EE6A00684B11 /* Assets.xcassets */; };
+		DB35807923B8EE6A00684B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB35807823B8EE6A00684B11 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB35805923B8EE6900684B11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB35803B23B8EE6700684B11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB35805623B8EE6900684B11;
+			remoteInfo = "SleepyWatcher WatchKit App";
+		};
+		DB35806823B8EE6900684B11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB35803B23B8EE6700684B11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB35806523B8EE6900684B11;
+			remoteInfo = "SleepyWatcher WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DB35808123B8EE6A00684B11 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DB35806723B8EE6900684B11 /* SleepyWatcher WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB35808523B8EE6A00684B11 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DB35805823B8EE6900684B11 /* SleepyWatcher WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DB35804323B8EE6700684B11 /* SleepyWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepyWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB35804623B8EE6700684B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB35804823B8EE6700684B11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DB35804A23B8EE6700684B11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB35804C23B8EE6800684B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB35804F23B8EE6800684B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DB35805223B8EE6800684B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB35805423B8EE6800684B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB35805723B8EE6900684B11 /* SleepyWatcher WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SleepyWatcher WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB35805D23B8EE6900684B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		DB35805F23B8EE6900684B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB35806123B8EE6900684B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB35806623B8EE6900684B11 /* SleepyWatcher WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SleepyWatcher WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB35806B23B8EE6900684B11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB35806D23B8EE6900684B11 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		DB35806F23B8EE6900684B11 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		DB35807123B8EE6900684B11 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DB35807323B8EE6900684B11 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		DB35807523B8EE6A00684B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB35807823B8EE6A00684B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DB35807A23B8EE6A00684B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB35807B23B8EE6A00684B11 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB35804023B8EE6700684B11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB35806323B8EE6900684B11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB35803A23B8EE6700684B11 = {
+			isa = PBXGroup;
+			children = (
+				DB35804523B8EE6700684B11 /* SleepyWatcher */,
+				DB35805B23B8EE6900684B11 /* SleepyWatcher WatchKit App */,
+				DB35806A23B8EE6900684B11 /* SleepyWatcher WatchKit Extension */,
+				DB35804423B8EE6700684B11 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB35804423B8EE6700684B11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB35804323B8EE6700684B11 /* SleepyWatcher.app */,
+				DB35805723B8EE6900684B11 /* SleepyWatcher WatchKit App.app */,
+				DB35806623B8EE6900684B11 /* SleepyWatcher WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB35804523B8EE6700684B11 /* SleepyWatcher */ = {
+			isa = PBXGroup;
+			children = (
+				DB35804623B8EE6700684B11 /* AppDelegate.swift */,
+				DB35804823B8EE6700684B11 /* SceneDelegate.swift */,
+				DB35804A23B8EE6700684B11 /* ContentView.swift */,
+				DB35804C23B8EE6800684B11 /* Assets.xcassets */,
+				DB35805123B8EE6800684B11 /* LaunchScreen.storyboard */,
+				DB35805423B8EE6800684B11 /* Info.plist */,
+				DB35804E23B8EE6800684B11 /* Preview Content */,
+			);
+			path = SleepyWatcher;
+			sourceTree = "<group>";
+		};
+		DB35804E23B8EE6800684B11 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DB35804F23B8EE6800684B11 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB35805B23B8EE6900684B11 /* SleepyWatcher WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				DB35805C23B8EE6900684B11 /* Interface.storyboard */,
+				DB35805F23B8EE6900684B11 /* Assets.xcassets */,
+				DB35806123B8EE6900684B11 /* Info.plist */,
+			);
+			path = "SleepyWatcher WatchKit App";
+			sourceTree = "<group>";
+		};
+		DB35806A23B8EE6900684B11 /* SleepyWatcher WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DB35806B23B8EE6900684B11 /* ContentView.swift */,
+				DB35806D23B8EE6900684B11 /* HostingController.swift */,
+				DB35806F23B8EE6900684B11 /* ExtensionDelegate.swift */,
+				DB35807123B8EE6900684B11 /* NotificationController.swift */,
+				DB35807323B8EE6900684B11 /* NotificationView.swift */,
+				DB35807523B8EE6A00684B11 /* Assets.xcassets */,
+				DB35807A23B8EE6A00684B11 /* Info.plist */,
+				DB35807B23B8EE6A00684B11 /* PushNotificationPayload.apns */,
+				DB35807723B8EE6A00684B11 /* Preview Content */,
+			);
+			path = "SleepyWatcher WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		DB35807723B8EE6A00684B11 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DB35807823B8EE6A00684B11 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB35804223B8EE6700684B11 /* SleepyWatcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB35808623B8EE6A00684B11 /* Build configuration list for PBXNativeTarget "SleepyWatcher" */;
+			buildPhases = (
+				DB35803F23B8EE6700684B11 /* Sources */,
+				DB35804023B8EE6700684B11 /* Frameworks */,
+				DB35804123B8EE6700684B11 /* Resources */,
+				DB35808523B8EE6A00684B11 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB35805A23B8EE6900684B11 /* PBXTargetDependency */,
+			);
+			name = SleepyWatcher;
+			productName = SleepyWatcher;
+			productReference = DB35804323B8EE6700684B11 /* SleepyWatcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB35805623B8EE6900684B11 /* SleepyWatcher WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB35808223B8EE6A00684B11 /* Build configuration list for PBXNativeTarget "SleepyWatcher WatchKit App" */;
+			buildPhases = (
+				DB35805523B8EE6900684B11 /* Resources */,
+				DB35808123B8EE6A00684B11 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB35806923B8EE6900684B11 /* PBXTargetDependency */,
+			);
+			name = "SleepyWatcher WatchKit App";
+			productName = "SleepyWatcher WatchKit App";
+			productReference = DB35805723B8EE6900684B11 /* SleepyWatcher WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DB35806523B8EE6900684B11 /* SleepyWatcher WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB35807E23B8EE6A00684B11 /* Build configuration list for PBXNativeTarget "SleepyWatcher WatchKit Extension" */;
+			buildPhases = (
+				DB35806223B8EE6900684B11 /* Sources */,
+				DB35806323B8EE6900684B11 /* Frameworks */,
+				DB35806423B8EE6900684B11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SleepyWatcher WatchKit Extension";
+			productName = "SleepyWatcher WatchKit Extension";
+			productReference = DB35806623B8EE6900684B11 /* SleepyWatcher WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB35803B23B8EE6700684B11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = nakarin;
+				TargetAttributes = {
+					DB35804223B8EE6700684B11 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					DB35805623B8EE6900684B11 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					DB35806523B8EE6900684B11 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = DB35803E23B8EE6700684B11 /* Build configuration list for PBXProject "SleepyWatcher" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB35803A23B8EE6700684B11;
+			productRefGroup = DB35804423B8EE6700684B11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB35804223B8EE6700684B11 /* SleepyWatcher */,
+				DB35805623B8EE6900684B11 /* SleepyWatcher WatchKit App */,
+				DB35806523B8EE6900684B11 /* SleepyWatcher WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB35804123B8EE6700684B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB35805323B8EE6800684B11 /* LaunchScreen.storyboard in Resources */,
+				DB35805023B8EE6800684B11 /* Preview Assets.xcassets in Resources */,
+				DB35804D23B8EE6800684B11 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB35805523B8EE6900684B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB35806023B8EE6900684B11 /* Assets.xcassets in Resources */,
+				DB35805E23B8EE6900684B11 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB35806423B8EE6900684B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB35807923B8EE6A00684B11 /* Preview Assets.xcassets in Resources */,
+				DB35807623B8EE6A00684B11 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB35803F23B8EE6700684B11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB35804723B8EE6700684B11 /* AppDelegate.swift in Sources */,
+				DB35804923B8EE6700684B11 /* SceneDelegate.swift in Sources */,
+				DB35804B23B8EE6700684B11 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB35806223B8EE6900684B11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB35806E23B8EE6900684B11 /* HostingController.swift in Sources */,
+				DB35806C23B8EE6900684B11 /* ContentView.swift in Sources */,
+				DB35807223B8EE6900684B11 /* NotificationController.swift in Sources */,
+				DB35807023B8EE6900684B11 /* ExtensionDelegate.swift in Sources */,
+				DB35807423B8EE6900684B11 /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB35805A23B8EE6900684B11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB35805623B8EE6900684B11 /* SleepyWatcher WatchKit App */;
+			targetProxy = DB35805923B8EE6900684B11 /* PBXContainerItemProxy */;
+		};
+		DB35806923B8EE6900684B11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB35806523B8EE6900684B11 /* SleepyWatcher WatchKit Extension */;
+			targetProxy = DB35806823B8EE6900684B11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DB35805123B8EE6800684B11 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB35805223B8EE6800684B11 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DB35805C23B8EE6900684B11 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB35805D23B8EE6900684B11 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB35807C23B8EE6A00684B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB35807D23B8EE6A00684B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB35807F23B8EE6A00684B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SleepyWatcher WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 922P3K9888;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SleepyWatcher WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		DB35808023B8EE6A00684B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SleepyWatcher WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 922P3K9888;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SleepyWatcher WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		DB35808323B8EE6A00684B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 922P3K9888;
+				IBSC_MODULE = SleepyWatcher_WatchKit_Extension;
+				INFOPLIST_FILE = "SleepyWatcher WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		DB35808423B8EE6A00684B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 922P3K9888;
+				IBSC_MODULE = SleepyWatcher_WatchKit_Extension;
+				INFOPLIST_FILE = "SleepyWatcher WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		DB35808723B8EE6A00684B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SleepyWatcher/Preview Content\"";
+				DEVELOPMENT_TEAM = 922P3K9888;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SleepyWatcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB35808823B8EE6A00684B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SleepyWatcher/Preview Content\"";
+				DEVELOPMENT_TEAM = 922P3K9888;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SleepyWatcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB35803E23B8EE6700684B11 /* Build configuration list for PBXProject "SleepyWatcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB35807C23B8EE6A00684B11 /* Debug */,
+				DB35807D23B8EE6A00684B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB35807E23B8EE6A00684B11 /* Build configuration list for PBXNativeTarget "SleepyWatcher WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB35807F23B8EE6A00684B11 /* Debug */,
+				DB35808023B8EE6A00684B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB35808223B8EE6A00684B11 /* Build configuration list for PBXNativeTarget "SleepyWatcher WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB35808323B8EE6A00684B11 /* Debug */,
+				DB35808423B8EE6A00684B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB35808623B8EE6A00684B11 /* Build configuration list for PBXNativeTarget "SleepyWatcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB35808723B8EE6A00684B11 /* Debug */,
+				DB35808823B8EE6A00684B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB35803B23B8EE6700684B11 /* Project object */;
+}
