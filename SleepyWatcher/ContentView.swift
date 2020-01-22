@@ -9,22 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @ObservedObject var healthReader = HealthReader()
-    @State var bool: Bool = false
+    @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
+    @State var isShowing: Bool = false
+
     var body: some View {
-        VStack() {
-            Image("univerce")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .mask(Takadama(bool: self.bool))
-//                    .mask(Takadama(bool: self.bool))
-            Button(action:{self.bool = !self.bool}) {
-                Text("Animate!")
-            }
+        NavigationView {
+            VStack {
+                List(heartRateModel.heartRates) { item in
+                    HeartRateRow(pulse: item)
+                }
+                Button(
+                    action: self.heartRateModel.readHeartRate,
+                    label: {
+                        Text("read ❤️")
+                })
+                .cornerRadius(20)
+            }.navigationBarTitle("HR(30 min)")
         }
 
-//        Text(String(healthReader.getHR()))
+
     }
+
 }
 
 #if DEBUG
@@ -35,20 +40,22 @@ struct ContentView_Previews: PreviewProvider {
 }
 #endif
 
-struct Takadama: View {
-    var bool: Bool
-    var body: some View {
-        if self.bool {
-//            return AnyView(Capsule())
-            return AnyView(Image("takadamalab"))
-//            .resizable()
-//            .aspectRatio(contentMode: .fit))
 
-        } else {
-            return AnyView(Circle())
+struct HeartRateRow: View {
+    var pulse: Pulse
+
+    var body: some View {
+        HStack {
+
+            Text(String(Int(pulse.pulse)))
+            Text(formatter(date: pulse.date))
         }
-//        Image("takadamalab")
-//        .resizable()
-//        .aspectRatio(contentMode: .fit)
+    }
+
+    func formatter(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .medium
+        return dateFormatter.string(from: date)
     }
 }

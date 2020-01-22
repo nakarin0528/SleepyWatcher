@@ -26,7 +26,7 @@
 		DB35807923B8EE6A00684B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB35807823B8EE6A00684B11 /* Preview Assets.xcassets */; };
 		DB35808B23B8EF2100684B11 /* HealthReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35808A23B8EF2100684B11 /* HealthReader.swift */; };
 		DB35808D23B8F6B900684B11 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35808C23B8F6B900684B11 /* HealthStore.swift */; };
-		DBC1439123D6CE9F0055200D /* Pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1439023D6CE9F0055200D /* Pulse.swift */; };
+		DB3CF18423D8041F006A9473 /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CF18323D8041F006A9473 /* HeartRateModel.swift */; };
 		DBC1439523D6CFAE0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439423D6CFAE0055200D /* HealthKit.framework */; };
 		DBC1439823D6CFDA0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439723D6CFDA0055200D /* HealthKit.framework */; };
 		DBC1439A23D6D8470055200D /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1439923D6D8470055200D /* HeartRateModel.swift */; };
@@ -99,7 +99,7 @@
 		DB35807B23B8EE6A00684B11 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		DB35808A23B8EF2100684B11 /* HealthReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthReader.swift; sourceTree = "<group>"; };
 		DB35808C23B8F6B900684B11 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
-		DBC1439023D6CE9F0055200D /* Pulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulse.swift; sourceTree = "<group>"; };
+		DB3CF18323D8041F006A9473 /* HeartRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateModel.swift; sourceTree = "<group>"; };
 		DBC1439223D6CFAE0055200D /* SleepyWatcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepyWatcher.entitlements; sourceTree = "<group>"; };
 		DBC1439423D6CFAE0055200D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		DBC1439623D6CFDA0055200D /* SleepyWatcher WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SleepyWatcher WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 			children = (
 				DB35808A23B8EF2100684B11 /* HealthReader.swift */,
 				DB35808C23B8F6B900684B11 /* HealthStore.swift */,
-				DBC1439023D6CE9F0055200D /* Pulse.swift */,
+				DB3CF18323D8041F006A9473 /* HeartRateModel.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -360,11 +360,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB3CF18423D8041F006A9473 /* HeartRateModel.swift in Sources */,
 				DB35804723B8EE6700684B11 /* AppDelegate.swift in Sources */,
 				DB35808D23B8F6B900684B11 /* HealthStore.swift in Sources */,
 				DB35804923B8EE6700684B11 /* SceneDelegate.swift in Sources */,
 				DB35808B23B8EF2100684B11 /* HealthReader.swift in Sources */,
-				DBC1439123D6CE9F0055200D /* Pulse.swift in Sources */,
 				DB35804B23B8EE6700684B11 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
