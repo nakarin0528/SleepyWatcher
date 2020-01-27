@@ -27,6 +27,12 @@
 		DB35808B23B8EF2100684B11 /* HealthReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35808A23B8EF2100684B11 /* HealthReader.swift */; };
 		DB35808D23B8F6B900684B11 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB35808C23B8F6B900684B11 /* HealthStore.swift */; };
 		DB3CF18423D8041F006A9473 /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CF18323D8041F006A9473 /* HeartRateModel.swift */; };
+		DB3CF18623D81F9F006A9473 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CF18523D81F9F006A9473 /* SettingView.swift */; };
+		DB7F5D5823DDE5BA0074A355 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D5723DDE5BA0074A355 /* UserDefault.swift */; };
+		DB7F5D5B23DE92FE0074A355 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D5A23DE92FE0074A355 /* UserDefault.swift */; };
+		DB7F5D5D23DE93770074A355 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D5C23DE93770074A355 /* SettingView.swift */; };
+		DB7F5D6023DEABCB0074A355 /* DataSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D5F23DEABCB0074A355 /* DataSender.swift */; };
+		DB7F5D6223DECBED0074A355 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D6123DECBED0074A355 /* SettingModel.swift */; };
 		DBC1439523D6CFAE0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439423D6CFAE0055200D /* HealthKit.framework */; };
 		DBC1439823D6CFDA0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439723D6CFDA0055200D /* HealthKit.framework */; };
 		DBC1439A23D6D8470055200D /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1439923D6D8470055200D /* HeartRateModel.swift */; };
@@ -100,6 +106,13 @@
 		DB35808A23B8EF2100684B11 /* HealthReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthReader.swift; sourceTree = "<group>"; };
 		DB35808C23B8F6B900684B11 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		DB3CF18323D8041F006A9473 /* HeartRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateModel.swift; sourceTree = "<group>"; };
+		DB3CF18523D81F9F006A9473 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		DB7F5D5723DDE5BA0074A355 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		DB7F5D5A23DE92FE0074A355 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		DB7F5D5C23DE93770074A355 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		DB7F5D5E23DE95F90074A355 /* SleepyWatcher WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SleepyWatcher WatchKit App.entitlements"; sourceTree = "<group>"; };
+		DB7F5D5F23DEABCB0074A355 /* DataSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSender.swift; sourceTree = "<group>"; };
+		DB7F5D6123DECBED0074A355 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		DBC1439223D6CFAE0055200D /* SleepyWatcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepyWatcher.entitlements; sourceTree = "<group>"; };
 		DBC1439423D6CFAE0055200D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		DBC1439623D6CFDA0055200D /* SleepyWatcher WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SleepyWatcher WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -153,6 +166,7 @@
 			children = (
 				DBC1439223D6CFAE0055200D /* SleepyWatcher.entitlements */,
 				DB35808923B8EEF900684B11 /* Health */,
+				DB7F5D5623DDE59B0074A355 /* Settings */,
 				DB35804623B8EE6700684B11 /* AppDelegate.swift */,
 				DB35804823B8EE6700684B11 /* SceneDelegate.swift */,
 				DB35804A23B8EE6700684B11 /* ContentView.swift */,
@@ -175,6 +189,7 @@
 		DB35805B23B8EE6900684B11 /* SleepyWatcher WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				DB7F5D5E23DE95F90074A355 /* SleepyWatcher WatchKit App.entitlements */,
 				DB35805C23B8EE6900684B11 /* Interface.storyboard */,
 				DB35805F23B8EE6900684B11 /* Assets.xcassets */,
 				DB35806123B8EE6900684B11 /* Info.plist */,
@@ -185,6 +200,7 @@
 		DB35806A23B8EE6900684B11 /* SleepyWatcher WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DB7F5D5923DE92EE0074A355 /* Settings */,
 				DBC1439623D6CFDA0055200D /* SleepyWatcher WatchKit Extension.entitlements */,
 				DBC1439923D6D8470055200D /* HeartRateModel.swift */,
 				DB35806B23B8EE6900684B11 /* ContentView.swift */,
@@ -216,6 +232,26 @@
 				DB3CF18323D8041F006A9473 /* HeartRateModel.swift */,
 			);
 			path = Health;
+			sourceTree = "<group>";
+		};
+		DB7F5D5623DDE59B0074A355 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DB3CF18523D81F9F006A9473 /* SettingView.swift */,
+				DB7F5D5723DDE5BA0074A355 /* UserDefault.swift */,
+				DB7F5D5F23DEABCB0074A355 /* DataSender.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DB7F5D5923DE92EE0074A355 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F5D5A23DE92FE0074A355 /* UserDefault.swift */,
+				DB7F5D5C23DE93770074A355 /* SettingView.swift */,
+				DB7F5D6123DECBED0074A355 /* SettingModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		DBC1439323D6CFAE0055200D /* Frameworks */ = {
@@ -360,9 +396,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7F5D6023DEABCB0074A355 /* DataSender.swift in Sources */,
+				DB7F5D5823DDE5BA0074A355 /* UserDefault.swift in Sources */,
 				DB3CF18423D8041F006A9473 /* HeartRateModel.swift in Sources */,
 				DB35804723B8EE6700684B11 /* AppDelegate.swift in Sources */,
 				DB35808D23B8F6B900684B11 /* HealthStore.swift in Sources */,
+				DB3CF18623D81F9F006A9473 /* SettingView.swift in Sources */,
 				DB35804923B8EE6700684B11 /* SceneDelegate.swift in Sources */,
 				DB35808B23B8EF2100684B11 /* HealthReader.swift in Sources */,
 				DB35804B23B8EE6700684B11 /* ContentView.swift in Sources */,
@@ -374,11 +413,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB35806E23B8EE6900684B11 /* HostingController.swift in Sources */,
+				DB7F5D5B23DE92FE0074A355 /* UserDefault.swift in Sources */,
 				DB35806C23B8EE6900684B11 /* ContentView.swift in Sources */,
 				DB35807223B8EE6900684B11 /* NotificationController.swift in Sources */,
 				DB35807023B8EE6900684B11 /* ExtensionDelegate.swift in Sources */,
+				DB7F5D5D23DE93770074A355 /* SettingView.swift in Sources */,
 				DBC1439A23D6D8470055200D /* HeartRateModel.swift in Sources */,
 				DB35807423B8EE6900684B11 /* NotificationView.swift in Sources */,
+				DB7F5D6223DECBED0074A355 /* SettingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +628,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SleepyWatcher WatchKit App/SleepyWatcher WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 922P3K9888;
 				IBSC_MODULE = SleepyWatcher_WatchKit_Extension;
@@ -605,6 +648,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SleepyWatcher WatchKit App/SleepyWatcher WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 922P3K9888;
 				IBSC_MODULE = SleepyWatcher_WatchKit_Extension;

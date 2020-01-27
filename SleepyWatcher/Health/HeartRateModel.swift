@@ -8,6 +8,7 @@
 
 import Combine
 import HealthKit
+//import Accelerate
 
 final class HeartRateModel: ObservableObject {
 
@@ -33,6 +34,7 @@ final class HeartRateModel: ObservableObject {
                 return
             }
         }
+
     }
 
     func readHeartRate() {

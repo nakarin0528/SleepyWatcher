@@ -8,12 +8,12 @@
 
 import Foundation
 import SwiftUI
+import WatchKit
 
 struct ContentView: View {
     @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
 
     var body: some View {
-//        Text("hello")
         VStack {
             self.showHeartRate(pulse: heartRateModel.heartRates.last)
             Button(
@@ -23,7 +23,6 @@ struct ContentView: View {
             })
             .background(self.heartRateModel.isReading ? Color.red:Color.green)
             .cornerRadius(20)
-
         }
     }
 

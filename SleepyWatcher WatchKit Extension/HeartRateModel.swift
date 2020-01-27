@@ -8,6 +8,7 @@
 
 import Combine
 import HealthKit
+import WatchKit
 
 final class HeartRateModel: ObservableObject {
 
@@ -36,6 +37,7 @@ final class HeartRateModel: ObservableObject {
     }
 
     func readHeartRate() {
+        WKInterfaceDevice.current().play(.notification)
         self.isReading = true
         self.heartRateQuery = self.createStreamingQuery()
         self.healthStore.execute(self.heartRateQuery!)
@@ -48,6 +50,15 @@ final class HeartRateModel: ObservableObject {
     }
 
     private func createStreamingQuery() -> HKQuery {
+//        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(),
+//                                                       userInfo: nil,
+//                                                       scheduledCompletion: { (error) in
+//                                                        if let error = error {
+//                                                            print("error: \(error.localizedDescription)")
+//                                                        } else {
+//                                                            print("background task is running!")
+//                                                        }
+//        })
         let predicate = HKQuery.predicateForSamples(withStart: Date(), end: nil, options: [.strictStartDate])
         let query = HKAnchoredObjectQuery(type: heartRateType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, samples, deletedObjects, anchor, error) -> Void in
             DispatchQueue.main.async {

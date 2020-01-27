@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
-    @State var isShowing: Bool = false
 
     var body: some View {
         NavigationView {
@@ -26,8 +25,6 @@ struct ContentView: View {
                 .cornerRadius(20)
             }.navigationBarTitle("HR(30 min)")
         }
-
-
     }
 
 }
