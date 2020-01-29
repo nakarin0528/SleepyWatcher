@@ -14,7 +14,7 @@ struct SettingView: View {
     @ObservedObject var settingModel: SettingModel
     @State var isVibrate: Bool = UserSetting.isVibrate
     @State var napTime: Int = UserSetting.napTime
-
+    
     var body: some View {
         VStack {
             List {
@@ -25,7 +25,7 @@ struct SettingView: View {
             Button(
                 action: self.syncronize,
                 label: {
-                    Text("syncronize")
+                    Text("sync")
             })
         }
         .navigationBarTitle("モニタリング設定")

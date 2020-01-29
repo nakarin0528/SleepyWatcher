@@ -8,11 +8,12 @@
 
 import Combine
 import HealthKit
-//import Accelerate
+import WatchConnectivity
 
-final class HeartRateModel: ObservableObject {
+final class HeartRateModel: NSObject, ObservableObject {
+    private var session: WCSession!
 
-    @Published var heartRates: [Pulse]
+    @Published var heartRates: [Pulse] = []
     @Published var isReading: Bool = false
     @Published var missCount: Int = 0
 
@@ -21,8 +22,9 @@ final class HeartRateModel: ObservableObject {
     private let heartRateUnit = HKUnit(from: "count/min")
     private var heartRateQuery: HKQuery?
 
-    init() {
-        self.heartRates = []
+    override init() {
+        super.init()
+
         guard HKHealthStore.isHealthDataAvailable() else {
             print("HelthStore: not availble")
             return
@@ -35,6 +37,11 @@ final class HeartRateModel: ObservableObject {
             }
         }
 
+        if WCSession.isSupported() {
+            self.session = WCSession.default
+            self.session.delegate = self
+            self.session.activate()
+        }
     }
 
     func readHeartRate() {
@@ -44,6 +51,10 @@ final class HeartRateModel: ObservableObject {
         self.healthStore.execute(self.heartRateQuery!)
     }
 
+    func sendStartAlarm() {
+            let contents: [String:Any] = ["startAlarm": true]
+            WCSession.default.transferUserInfo(contents)
+    }
 
     private func createStreamingQuery() -> HKQuery {
         let predicate = HKQuery.predicateForSamples(withStart: Date(timeInterval: -60*30, since: Date()), end: Date(), options: [.strictStartDate])
@@ -74,6 +85,29 @@ final class HeartRateModel: ObservableObject {
             self.heartRates.append(Pulse(pulse: $0.quantity.doubleValue(for: heartRateUnit), date: $0.startDate))
         }
 
+    }
+}
+
+extension HeartRateModel: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        switch activationState {
+        case .activated:
+            print("session: active")
+        case .inactive:
+            print("session: inactive")
+        case .notActivated:
+            print("session: not active")
+        default:
+            print("session: What happend!?")
+        }
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("session: did become inactive")
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("session: did deactive")
     }
 }
 

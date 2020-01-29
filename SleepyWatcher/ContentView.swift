@@ -20,9 +20,20 @@ struct ContentView: View {
                 Button(
                     action: self.heartRateModel.readHeartRate,
                     label: {
-                        Text("read ❤️")
+                        Text("read ❤️").padding()
                 })
-                .cornerRadius(20)
+                    .foregroundColor(Color.white)
+                    .background(Color.green)
+                    .cornerRadius(20)
+                Spacer()
+                Button(
+                    action: self.heartRateModel.sendStartAlarm,
+                    label: {
+                        Text("start alarm").padding()
+                })
+                    .foregroundColor(Color.white)
+                    .background(Color.red)
+                    .cornerRadius(20)
             }.navigationBarTitle("HR(30 min)")
         }
     }

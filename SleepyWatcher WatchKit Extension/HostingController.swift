@@ -17,10 +17,12 @@ class HostingController: WKHostingController<SettingView>, WKExtensionDelegate, 
 
     fileprivate var wcBackgroundTasks: [WKWatchConnectivityRefreshBackgroundTask] = []
     var session: WCSession!
-    private let model = SettingModel()
+    private let settingModel = SettingModel()
+    private let alarmModel = AlarmModel(session: WKExtendedRuntimeSession())
 
     override var body: SettingView {
-        return SettingView(settingModel: model)
+//        return CountDownView(model: alarmModel)
+        return SettingView(settingModel: settingModel)
     }
 
     override func willActivate() {
@@ -29,6 +31,7 @@ class HostingController: WKHostingController<SettingView>, WKExtensionDelegate, 
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+
         if WCSession.isSupported() {
             self.session = WCSession.default
             self.session.delegate = self
@@ -56,6 +59,13 @@ class HostingController: WKHostingController<SettingView>, WKExtensionDelegate, 
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         print("receiveUserInfo: \(userInfo)")
 
+        if let startAlarm = userInfo["startAlarm"] as? Bool {
+            if startAlarm {
+                self.alarmModel.runTimer()
+                return
+            }
+        }
+
         guard
             let startTime = userInfo["startTime"] as? Date,
             let endTime = userInfo["endTime"] as? Date,
@@ -70,29 +80,8 @@ class HostingController: WKHostingController<SettingView>, WKExtensionDelegate, 
         UserSetting.endTime = endTime
         UserSetting.isVibrate = isVibrate
         UserSetting.napTime = napTime
-        model.reflesh()
+        settingModel.reflesh()
     }
-
-//    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-//        print("receiveMessage: \(message)")
-//
-//        guard
-//            let startTime = message["startTime"] as? Date,
-//            let endTime = message["endTime"] as? Date,
-//            let isVibrate = message["isVibrate"] as? Bool,
-//            let napTime = message["napTime"] as? Int
-//        else {
-//            print("error: what happend!?")
-//            return
-//        }
-//
-//        UserSetting.startTime = startTime
-//        UserSetting.endTime = endTime
-//        UserSetting.isVibrate = isVibrate
-//        UserSetting.napTime = napTime
-//
-//        replyHandler(["message": "しっかり受け取った！"])
-//    }
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("session")

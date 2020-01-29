@@ -34,6 +34,10 @@
 	<string>To detect your sleepy</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>To detect your sleepy</string>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>alarm</string>
+	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
 	<key>WKRunsIndependentlyOfCompanionApp</key>
