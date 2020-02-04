@@ -10,6 +10,8 @@ import WatchKit
 
 final class AlarmModel: NSObject, ObservableObject {
     private var sleepTimer: Timer?
+    private let timeScale: Int = 60
+
     @Published var seconds = UserSetting.napTime * 60
 
     var session: WKExtendedRuntimeSession!
@@ -23,7 +25,7 @@ final class AlarmModel: NSObject, ObservableObject {
 
     func runTimer() {
         DispatchQueue.main.async {
-            self.seconds = UserSetting.napTime * 60
+            self.seconds = UserSetting.napTime * self.timeScale
             if self.sleepTimer == nil {
                 self.sleepTimer = Timer.scheduledTimer(
                     timeInterval: 1,
@@ -41,7 +43,7 @@ final class AlarmModel: NSObject, ObservableObject {
     func stopAlarm() {
         self.session.invalidate()
         DispatchQueue.main.async {
-            self.seconds = UserSetting.napTime * 60
+            self.seconds = UserSetting.napTime * self.timeScale
         }
     }
 
@@ -53,7 +55,7 @@ final class AlarmModel: NSObject, ObservableObject {
             self.sleepTimer?.invalidate()
             self.sleepTimer = nil
 
-            self.session.notifyUser(hapticType: .failure) { (pointa) -> TimeInterval in
+            self.session.notifyUser(hapticType: .notification) { (pointa) -> TimeInterval in
                 print(pointa)
                 return 1.0
             }

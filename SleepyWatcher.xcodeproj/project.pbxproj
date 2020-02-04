@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,6 +35,8 @@
 		DB7F5D6223DECBED0074A355 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D6123DECBED0074A355 /* SettingModel.swift */; };
 		DB7F5D6523DEFD9C0074A355 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D6423DEFD9C0074A355 /* Alarm.swift */; };
 		DB7F5D6723E13B3C0074A355 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D6623E13B3C0074A355 /* CountDownView.swift */; };
+		DB958C9123E70F7300B6373C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB958C9023E70F7300B6373C /* Helper.swift */; };
+		DB958C9423E7263C00B6373C /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DB958C9323E7263C00B6373C /* SwiftUICharts */; };
 		DBC1439523D6CFAE0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439423D6CFAE0055200D /* HealthKit.framework */; };
 		DBC1439823D6CFDA0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439723D6CFDA0055200D /* HealthKit.framework */; };
 		DBC1439A23D6D8470055200D /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1439923D6D8470055200D /* HeartRateModel.swift */; };
@@ -117,6 +119,7 @@
 		DB7F5D6123DECBED0074A355 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		DB7F5D6423DEFD9C0074A355 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		DB7F5D6623E13B3C0074A355 /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
+		DB958C9023E70F7300B6373C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DBC1439223D6CFAE0055200D /* SleepyWatcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepyWatcher.entitlements; sourceTree = "<group>"; };
 		DBC1439423D6CFAE0055200D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		DBC1439623D6CFDA0055200D /* SleepyWatcher WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SleepyWatcher WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -125,11 +128,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		968B51B01D52DCAEF6FAED60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB35804023B8EE6700684B11 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DBC1439523D6CFAE0055200D /* HealthKit.framework in Frameworks */,
+				DB958C9423E7263C00B6373C /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +163,7 @@
 				DB35806A23B8EE6900684B11 /* SleepyWatcher WatchKit Extension */,
 				DB35804423B8EE6700684B11 /* Products */,
 				DBC1439323D6CFAE0055200D /* Frameworks */,
+				EFC255E1EF7613031002B629 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +180,7 @@
 		DB35804523B8EE6700684B11 /* SleepyWatcher */ = {
 			isa = PBXGroup;
 			children = (
+				DB958C8F23E70F6500B6373C /* Helper */,
 				DBC1439223D6CFAE0055200D /* SleepyWatcher.entitlements */,
 				DB35808923B8EEF900684B11 /* Health */,
 				DB7F5D5623DDE59B0074A355 /* Settings */,
@@ -268,6 +281,14 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
+		DB958C8F23E70F6500B6373C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DB958C9023E70F7300B6373C /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		DBC1439323D6CFAE0055200D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +296,13 @@
 				DBC1439423D6CFAE0055200D /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFC255E1EF7613031002B629 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +323,9 @@
 				DB35805A23B8EE6900684B11 /* PBXTargetDependency */,
 			);
 			name = SleepyWatcher;
+			packageProductDependencies = (
+				DB958C9323E7263C00B6373C /* SwiftUICharts */,
+			);
 			productName = SleepyWatcher;
 			productReference = DB35804323B8EE6700684B11 /* SleepyWatcher.app */;
 			productType = "com.apple.product-type.application";
@@ -305,6 +336,7 @@
 			buildPhases = (
 				DB35805523B8EE6900684B11 /* Resources */,
 				DB35808123B8EE6A00684B11 /* Embed App Extensions */,
+				968B51B01D52DCAEF6FAED60 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,6 +395,9 @@
 				Base,
 			);
 			mainGroup = DB35803A23B8EE6700684B11;
+			packageReferences = (
+				DB958C9223E7263C00B6373C /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = DB35804423B8EE6700684B11 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -417,6 +452,7 @@
 				DB35808D23B8F6B900684B11 /* HealthStore.swift in Sources */,
 				DB3CF18623D81F9F006A9473 /* SettingView.swift in Sources */,
 				DB35804923B8EE6700684B11 /* SceneDelegate.swift in Sources */,
+				DB958C9123E70F7300B6373C /* Helper.swift in Sources */,
 				DB35808B23B8EF2100684B11 /* HealthReader.swift in Sources */,
 				DB35804B23B8EE6700684B11 /* ContentView.swift in Sources */,
 			);
@@ -612,7 +648,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -639,7 +675,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -659,7 +695,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -679,7 +715,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -765,6 +801,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB958C9223E7263C00B6373C /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB958C9323E7263C00B6373C /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB958C9223E7263C00B6373C /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB35803B23B8EE6700684B11 /* Project object */;
 }

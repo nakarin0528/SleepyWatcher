@@ -35,7 +35,7 @@ struct ContentView: View {
             return AnyView(
                 VStack {
                     HStack {
-                        Text("HeartRate:")
+                        Text("HRV:")
                         Text(String(Int(pulse.pulse)))
                             .foregroundColor(Color.pink)
                             .fontWeight(.bold)
@@ -46,7 +46,7 @@ struct ContentView: View {
         } else {
             return AnyView(
                 VStack {
-                    Text("HeartRate: error")
+                    Text("HRV: error")
                     Text("Time: \(dateFormatter.string(from: Date()))")
                 }
             )

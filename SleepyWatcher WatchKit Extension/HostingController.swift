@@ -13,16 +13,17 @@ import HealthKit
 import UserNotifications
 import WatchConnectivity
 
-class HostingController: WKHostingController<SettingView>, WKExtensionDelegate, WCSessionDelegate {
+class HostingController: WKHostingController<ContentView>, WKExtensionDelegate, WCSessionDelegate {
 
     fileprivate var wcBackgroundTasks: [WKWatchConnectivityRefreshBackgroundTask] = []
     var session: WCSession!
     private let settingModel = SettingModel()
     private let alarmModel = AlarmModel(session: WKExtendedRuntimeSession())
 
-    override var body: SettingView {
+    override var body: ContentView {
 //        return CountDownView(model: alarmModel)
-        return SettingView(settingModel: settingModel)
+//        return SettingView(settingModel: settingModel)
+        return ContentView()
     }
 
     override func willActivate() {

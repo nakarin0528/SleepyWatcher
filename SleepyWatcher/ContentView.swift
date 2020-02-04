@@ -7,43 +7,25 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct ContentView: View {
-    @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
-
     var body: some View {
         NavigationView {
             VStack {
-                List(heartRateModel.heartRates) { item in
-                    HeartRateRow(pulse: item)
-                }
-                Button(
-                    action: self.heartRateModel.readHeartRate,
-                    label: {
-                        Text("read ❤️").padding()
-                })
-                    .foregroundColor(Color.white)
-                    .background(Color.green)
-                    .cornerRadius(20)
-                Spacer()
-                Button(
-                    action: self.heartRateModel.sendStartAlarm,
-                    label: {
-                        Text("start alarm").padding()
-                })
-                    .foregroundColor(Color.white)
-                    .background(Color.red)
-                    .cornerRadius(20)
-            }.navigationBarTitle("HR(30 min)")
+                HeartRateView()
+                SettingCardView()
+            }
+            .frame(width: 370, height: 500)
+            .navigationBarTitle(Text("Sleepy Watcher"))
         }
     }
-
 }
 
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environment(\.colorScheme, .dark)
     }
 }
 #endif
@@ -54,16 +36,100 @@ struct HeartRateRow: View {
 
     var body: some View {
         HStack {
-
             Text(String(Int(pulse.pulse)))
-            Text(formatter(date: pulse.date))
+            Text(Helper.formatter(date: pulse.date))
         }
     }
+}
 
-    func formatter(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .medium
-        return dateFormatter.string(from: date)
+struct SettingCardView: View {
+    @State var startTime: Date = UserSetting.startTime
+    @State var endTime: Date = UserSetting.endTime
+    @State var isVibrate: Bool = UserSetting.isVibrate
+    @State var napTime: Int = UserSetting.napTime
+
+    var body: some View {
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "gear").foregroundColor(.gray)
+                        Text("Monitor Setting")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.primary)
+                        Spacer()
+                        NavigationLink(destination: SettingView(
+                            startTime: startTime,
+                            endTime: endTime,
+                            isVibrate: isVibrate,
+                            napTime: napTime)
+                        ) {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Text("Start Time: \(Helper.formatter(date: startTime))")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Text("End Time: \(Helper.formatter(date: endTime))")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Text("Vibration Mode: \(isVibrate ? "true":"false")")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Text("Nap Time: \(napTime)")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                }.onAppear(perform: {
+                    self.startTime = UserSetting.startTime
+                    self.endTime = UserSetting.endTime
+                    self.isVibrate = UserSetting.isVibrate
+                    self.napTime = UserSetting.napTime
+                })
+                .padding()
+                Spacer()
+            }
+            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+            .cornerRadius(15)
+            .padding()
+            
+        }
+        .padding([.bottom])
+    }
+}
+
+struct HeartRateView: View {
+    @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
+    var body: some View {
+        GeometryReader{ geometry in
+            ZStack {
+                LineView(data: self.heartRateModel.hr, title: "HR", legend: "You are fine!", valueSpecifier: "%.0f").padding([.horizontal])
+                GeometryReader { geometry in
+                    Button(action: {
+                        self.heartRateModel.readHeartRate()
+                    }) {
+                        Image(systemName: "arrow.2.circlepath.circle")
+                            .resizable()
+                            .font(Font.title.weight(.bold))
+                            .frame(width:30, height:30)
+                            .foregroundColor(.orange)
+                    }
+                    .offset(x: geometry.frame(in: .local).width/2.6, y:-geometry.frame(in: .local).height/2.7)
+                }
+                //                Button(
+                //                    action: self.heartRateModel.sendStartAlarm,
+                //                    label: {
+                //                        Text("start alarm").padding()
+                //                })
+                //                    .foregroundColor(Color.white)
+                //                    .background(Color.red)
+                //                    .cornerRadius(20)
+            }
+            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+            .cornerRadius(15)
+            .padding([.horizontal])
+        }
+
     }
 }

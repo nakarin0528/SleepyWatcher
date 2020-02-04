@@ -19,6 +19,7 @@ final class HeartRateModel: ObservableObject {
     private let healthStore = HKHealthStore()
     private let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
     private let heartRateUnit = HKUnit(from: "count/min")
+//    private let heartRateUnit = HKUnit.secondUnit(with: .milli)
     private var heartRateQuery: HKQuery?
 
     init() {
@@ -50,15 +51,6 @@ final class HeartRateModel: ObservableObject {
     }
 
     private func createStreamingQuery() -> HKQuery {
-//        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(),
-//                                                       userInfo: nil,
-//                                                       scheduledCompletion: { (error) in
-//                                                        if let error = error {
-//                                                            print("error: \(error.localizedDescription)")
-//                                                        } else {
-//                                                            print("background task is running!")
-//                                                        }
-//        })
         let predicate = HKQuery.predicateForSamples(withStart: Date(), end: nil, options: [.strictStartDate])
         let query = HKAnchoredObjectQuery(type: heartRateType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, samples, deletedObjects, anchor, error) -> Void in
             DispatchQueue.main.async {

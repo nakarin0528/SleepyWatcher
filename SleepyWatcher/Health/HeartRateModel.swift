@@ -14,6 +14,8 @@ final class HeartRateModel: NSObject, ObservableObject {
     private var session: WCSession!
 
     @Published var heartRates: [Pulse] = []
+    @Published var hr: [Double] = []
+    @Published var heartRatesChartData: [(String, Double)] = []
     @Published var isReading: Bool = false
     @Published var missCount: Int = 0
 
@@ -42,10 +44,12 @@ final class HeartRateModel: NSObject, ObservableObject {
             self.session.delegate = self
             self.session.activate()
         }
+        self.readHeartRate()
     }
 
     func readHeartRate() {
         self.heartRates.removeAll()
+        self.heartRatesChartData.removeAll()
         self.isReading = true
         self.heartRateQuery = self.createStreamingQuery()
         self.healthStore.execute(self.heartRateQuery!)
@@ -57,7 +61,7 @@ final class HeartRateModel: NSObject, ObservableObject {
     }
 
     private func createStreamingQuery() -> HKQuery {
-        let predicate = HKQuery.predicateForSamples(withStart: Date(timeInterval: -60*30, since: Date()), end: Date(), options: [.strictStartDate])
+        let predicate = HKQuery.predicateForSamples(withStart: Date(timeInterval: -60*60*3, since: Date()), end: Date(), options: [.strictStartDate])
         let query = HKAnchoredObjectQuery(type: heartRateType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, samples, deletedObjects, anchor, error) -> Void in
             DispatchQueue.main.async {
                 if let _ = error {
@@ -82,9 +86,13 @@ final class HeartRateModel: NSObject, ObservableObject {
     private func addSamples(_ samples: [HKSample]?) {
         guard let samples = samples as? [HKQuantitySample] else { return }
         samples.forEach {
-            self.heartRates.append(Pulse(pulse: $0.quantity.doubleValue(for: heartRateUnit), date: $0.startDate))
+            if $0.device?.name == "Apple Watch" {
+                let pulse = Pulse(pulse: $0.quantity.doubleValue(for: heartRateUnit), date: $0.startDate)
+                self.heartRates.append(pulse)
+            }
+//            self.heartRatesChartData.append((Helper.formatter(date: pulse.date), pulse.pulse))
         }
-
+        self.hr = heartRates.map{$0.pulse}
     }
 }
 
