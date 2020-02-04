@@ -48,6 +48,7 @@ final class HeartRateModel: NSObject, ObservableObject {
     }
 
     func readHeartRate() {
+        self.hr.removeAll()
         self.heartRates.removeAll()
         self.heartRatesChartData.removeAll()
         self.isReading = true

@@ -100,11 +100,14 @@ struct SettingCardView: View {
 }
 
 struct HeartRateView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
     var body: some View {
         GeometryReader{ geometry in
             ZStack {
-                LineView(data: self.heartRateModel.hr, title: "HR", legend: "You are fine!", valueSpecifier: "%.0f").padding([.horizontal])
+                LineView(data: self.heartRateModel.hr, title: "HR", legend: "You are fine!", valueSpecifier: "%.0f").padding([.horizontal]).onAppear(perform: {
+                    self.heartRateModel.readHeartRate()
+                })
                 GeometryReader { geometry in
                     Button(action: {
                         self.heartRateModel.readHeartRate()
