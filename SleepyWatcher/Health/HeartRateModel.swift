@@ -56,6 +56,10 @@ final class HeartRateModel: NSObject, ObservableObject {
         self.healthStore.execute(self.heartRateQuery!)
     }
 
+    func estimateUserStatus() -> UserStatus {
+        return UserStatus.fine
+    }
+
     func sendStartAlarm() {
             let contents: [String:Any] = ["startAlarm": true]
             WCSession.default.transferUserInfo(contents)

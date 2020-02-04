@@ -75,7 +75,7 @@ struct SettingCardView: View {
                     Text("End Time: \(Helper.formatter(date: endTime))")
                         .font(.headline)
                         .foregroundColor(.primary)
-                    Text("Vibration Mode: \(isVibrate ? "true":"false")")
+                    Text("Send Vibration: \(isVibrate ? "true":"false")")
                         .font(.headline)
                         .foregroundColor(.primary)
                     Text("Nap Time: \(napTime)")
@@ -105,20 +105,24 @@ struct HeartRateView: View {
     var body: some View {
         GeometryReader{ geometry in
             ZStack {
-                LineView(data: self.heartRateModel.hr, title: "HR", legend: "You are fine!", valueSpecifier: "%.0f").padding([.horizontal]).onAppear(perform: {
-                    self.heartRateModel.readHeartRate()
-                })
+                LineView(
+                    data: self.heartRateModel.hr,
+                    title: "HR (\(Helper.formatter(date: Date() - 60*60*3)) - \(Helper.formatter(date: Date())))",
+                    legend: "You are \(self.getUserStatus())", valueSpecifier: "%.0f").padding([.horizontal])
+//                    .onAppear(perform: {
+//                        self.heartRateModel.readHeartRate()
+//                    })
                 GeometryReader { geometry in
                     Button(action: {
                         self.heartRateModel.readHeartRate()
                     }) {
                         Image(systemName: "arrow.2.circlepath.circle")
                             .resizable()
-                            .font(Font.title.weight(.bold))
-                            .frame(width:30, height:30)
+                            .font(Font.title.weight(.medium))
+                            .frame(width:25, height:25)
                             .foregroundColor(.orange)
                     }
-                    .offset(x: geometry.frame(in: .local).width/2.6, y:-geometry.frame(in: .local).height/2.7)
+                    .offset(x: geometry.frame(in: .local).width/2.45, y:-geometry.frame(in: .local).height/2.7)
                 }
                 //                Button(
                 //                    action: self.heartRateModel.sendStartAlarm,
@@ -133,6 +137,22 @@ struct HeartRateView: View {
             .cornerRadius(15)
             .padding([.horizontal])
         }
-
     }
+
+    private func getUserStatus() -> String {
+        switch self.heartRateModel.estimateUserStatus() {
+        case .fine:
+            return "fine! 😇"
+        case .sleepy:
+            return "sleepy! 🥱"
+        case .sleeping:
+            return "sleeping! 😪"
+        }
+    }
+}
+
+enum UserStatus {
+    case fine
+    case sleepy
+    case sleeping
 }
