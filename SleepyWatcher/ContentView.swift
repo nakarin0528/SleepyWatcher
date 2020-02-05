@@ -13,11 +13,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HeartRateView()
+                HeartRateView(model: HeartRateModel())
                 SettingCardView()
             }
             .frame(width: 370, height: 500)
             .navigationBarTitle(Text("Sleepy Watcher"))
+            .navigationBarItems(trailing:
+                NavigationLink(destination: DebugView(model: HeartRateModel())) {
+                    Image(systemName: "hammer.fill")
+                }
+            )
         }
     }
 }
@@ -49,64 +54,64 @@ struct SettingCardView: View {
     @State var napTime: Int = UserSetting.napTime
 
     var body: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "gear").foregroundColor(.gray)
-                        Text("Monitor Setting")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.primary)
-                        Spacer()
-                        NavigationLink(destination: SettingView(
-                            startTime: startTime,
-                            endTime: endTime,
-                            isVibrate: isVibrate,
-                            napTime: napTime)
-                        ) {
+        NavigationLink(destination: SettingView(
+            startTime: startTime,
+            endTime: endTime,
+            isVibrate: isVibrate,
+            napTime: napTime)
+        ) {
+            VStack {
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "gear").foregroundColor(.gray)
+                            Text("Monitor Setting")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.primary)
+                            Spacer()
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.gray)
                         }
-                    }
-                    Text("Start Time: \(Helper.formatter(date: startTime))")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    Text("End Time: \(Helper.formatter(date: endTime))")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    Text("Send Vibration: \(isVibrate ? "true":"false")")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    Text("Nap Time: \(napTime)")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                }.onAppear(perform: {
-                    self.startTime = UserSetting.startTime
-                    self.endTime = UserSetting.endTime
-                    self.isVibrate = UserSetting.isVibrate
-                    self.napTime = UserSetting.napTime
-                })
+                        Text("Start Time: \(Helper.formatter(date: startTime))")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text("End Time: \(Helper.formatter(date: endTime))")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text("Quick Vibration: \(isVibrate ? "true":"false")")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text("Nap Time: \(napTime)")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                    }.onAppear(perform: {
+                        self.startTime = UserSetting.startTime
+                        self.endTime = UserSetting.endTime
+                        self.isVibrate = UserSetting.isVibrate
+                        self.napTime = UserSetting.napTime
+                    })
+                    .padding()
+                    Spacer()
+                }
+                .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+                .cornerRadius(15)
                 .padding()
-                Spacer()
+
             }
-            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
-            .cornerRadius(15)
-            .padding()
-            
+            .padding([.bottom])
         }
-        .padding([.bottom])
     }
 }
 
 struct HeartRateView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject(initialValue: HeartRateModel()) var heartRateModel: HeartRateModel
+    @ObservedObject var model: HeartRateModel
     var body: some View {
         GeometryReader{ geometry in
             ZStack {
                 LineView(
-                    data: self.heartRateModel.hr,
+                    data: self.model.hr,
                     title: "HR (\(Helper.formatter(date: Date() - 60*60*3)) - \(Helper.formatter(date: Date())))",
                     legend: "You are \(self.getUserStatus())", valueSpecifier: "%.0f").padding([.horizontal])
 //                    .onAppear(perform: {
@@ -114,7 +119,7 @@ struct HeartRateView: View {
 //                    })
                 GeometryReader { geometry in
                     Button(action: {
-                        self.heartRateModel.readHeartRate()
+                        self.model.readHeartRate()
                     }) {
                         Image(systemName: "arrow.2.circlepath.circle")
                             .resizable()
@@ -124,14 +129,6 @@ struct HeartRateView: View {
                     }
                     .offset(x: geometry.frame(in: .local).width/2.45, y:-geometry.frame(in: .local).height/2.7)
                 }
-                //                Button(
-                //                    action: self.heartRateModel.sendStartAlarm,
-                //                    label: {
-                //                        Text("start alarm").padding()
-                //                })
-                //                    .foregroundColor(Color.white)
-                //                    .background(Color.red)
-                //                    .cornerRadius(20)
             }
             .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
             .cornerRadius(15)
@@ -140,7 +137,7 @@ struct HeartRateView: View {
     }
 
     private func getUserStatus() -> String {
-        switch self.heartRateModel.estimateUserStatus() {
+        switch self.model.estimateUserStatus() {
         case .fine:
             return "fine! 😇"
         case .sleepy:

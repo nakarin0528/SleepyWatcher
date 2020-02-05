@@ -61,8 +61,8 @@ final class HeartRateModel: NSObject, ObservableObject {
     }
 
     func sendStartAlarm() {
-            let contents: [String:Any] = ["startAlarm": true]
-            WCSession.default.transferUserInfo(contents)
+        let contents: [String:Any] = ["startAlarm": true]
+        WCSession.default.transferUserInfo(contents)
     }
 
     private func createStreamingQuery() -> HKQuery {

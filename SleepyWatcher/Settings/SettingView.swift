@@ -61,7 +61,7 @@ struct SettingView: View {
                 VStack {
                     Toggle(isOn: $isVibrate) {
                         Spacer()
-                        Text("Send Vibration").font(.headline)
+                        Text("Quick Vibration").font(.headline)
                     }
                 }.padding(8)
             }

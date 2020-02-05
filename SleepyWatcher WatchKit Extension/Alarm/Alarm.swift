@@ -23,19 +23,29 @@ final class AlarmModel: NSObject, ObservableObject {
         self.session.start(at: Date())
     }
 
+    func startSession() {
+        self.session.start(at: Date())
+//        self.session.start()
+    }
+
     func runTimer() {
+
         DispatchQueue.main.async {
-            self.seconds = UserSetting.napTime * self.timeScale
-            if self.sleepTimer == nil {
-                self.sleepTimer = Timer.scheduledTimer(
-                    timeInterval: 1,
-                    target: self,
-                    selector: #selector(self.updateTimer),
-                    userInfo: nil,
-                    repeats: true)
-                self.sleepTimer?.fire()
+            if UserSetting.isVibrate {
+                self.runVibration()
             } else {
-                print("すでにstartしてるよ")
+                self.seconds = UserSetting.napTime * self.timeScale
+                if self.sleepTimer == nil {
+                    self.sleepTimer = Timer.scheduledTimer(
+                        timeInterval: 1,
+                        target: self,
+                        selector: #selector(self.updateTimer),
+                        userInfo: nil,
+                        repeats: true)
+                    self.sleepTimer?.fire()
+                } else {
+                    print("すでにstartしてるよ")
+                }
             }
         }
     }
@@ -45,6 +55,7 @@ final class AlarmModel: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.seconds = UserSetting.napTime * self.timeScale
         }
+        self.startSession()
     }
 
     @objc private func updateTimer() {
@@ -55,8 +66,19 @@ final class AlarmModel: NSObject, ObservableObject {
             self.sleepTimer?.invalidate()
             self.sleepTimer = nil
 
+            if self.session.state != .invalid && self.session.state != .scheduled {
+                self.session.notifyUser(hapticType: .notification) { (pointa) -> TimeInterval in
+                    print(pointa)
+                    return 1.0
+                }
+            }
+        }
+    }
+
+    private func runVibration() {
+        if self.session.state != .invalid && self.session.state != .scheduled {
+            self.seconds = 0
             self.session.notifyUser(hapticType: .notification) { (pointa) -> TimeInterval in
-                print(pointa)
                 return 1.0
             }
         }
@@ -71,6 +93,7 @@ extension AlarmModel: WKExtendedRuntimeSessionDelegate {
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         print("RuntimeSession: expire")
     }
+
 
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
         // Track when your session ends.

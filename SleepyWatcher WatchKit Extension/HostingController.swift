@@ -13,17 +13,17 @@ import HealthKit
 import UserNotifications
 import WatchConnectivity
 
-class HostingController: WKHostingController<ContentView>, WKExtensionDelegate, WCSessionDelegate {
+class HostingController: WKHostingController<CountDownView>, WKExtensionDelegate, WCSessionDelegate {
 
     fileprivate var wcBackgroundTasks: [WKWatchConnectivityRefreshBackgroundTask] = []
     var session: WCSession!
     private let settingModel = SettingModel()
     private let alarmModel = AlarmModel(session: WKExtendedRuntimeSession())
 
-    override var body: ContentView {
-//        return CountDownView(model: alarmModel)
+    override var body: CountDownView {
+        return CountDownView(model: alarmModel)
 //        return SettingView(settingModel: settingModel)
-        return ContentView()
+//        return ContentView()
     }
 
     override func willActivate() {
@@ -82,6 +82,7 @@ class HostingController: WKHostingController<ContentView>, WKExtensionDelegate, 
         UserSetting.isVibrate = isVibrate
         UserSetting.napTime = napTime
         settingModel.reflesh()
+        print("Setting updated!")
     }
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {

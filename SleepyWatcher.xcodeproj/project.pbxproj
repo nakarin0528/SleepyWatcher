@@ -37,6 +37,7 @@
 		DB7F5D6723E13B3C0074A355 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F5D6623E13B3C0074A355 /* CountDownView.swift */; };
 		DB958C9123E70F7300B6373C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB958C9023E70F7300B6373C /* Helper.swift */; };
 		DB958C9423E7263C00B6373C /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DB958C9323E7263C00B6373C /* SwiftUICharts */; };
+		DB9C72CD23EA77C600AA3453 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C72CC23EA77C600AA3453 /* DebugView.swift */; };
 		DBC1439523D6CFAE0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439423D6CFAE0055200D /* HealthKit.framework */; };
 		DBC1439823D6CFDA0055200D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC1439723D6CFDA0055200D /* HealthKit.framework */; };
 		DBC1439A23D6D8470055200D /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC1439923D6D8470055200D /* HeartRateModel.swift */; };
@@ -120,6 +121,7 @@
 		DB7F5D6423DEFD9C0074A355 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		DB7F5D6623E13B3C0074A355 /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		DB958C9023E70F7300B6373C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		DB9C72CC23EA77C600AA3453 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		DBC1439223D6CFAE0055200D /* SleepyWatcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepyWatcher.entitlements; sourceTree = "<group>"; };
 		DBC1439423D6CFAE0055200D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		DBC1439623D6CFDA0055200D /* SleepyWatcher WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SleepyWatcher WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				DB7F5D5623DDE59B0074A355 /* Settings */,
 				DB35804623B8EE6700684B11 /* AppDelegate.swift */,
 				DB35804823B8EE6700684B11 /* SceneDelegate.swift */,
+				DB9C72CC23EA77C600AA3453 /* DebugView.swift */,
 				DB35804A23B8EE6700684B11 /* ContentView.swift */,
 				DB35804C23B8EE6800684B11 /* Assets.xcassets */,
 				DB35805123B8EE6800684B11 /* LaunchScreen.storyboard */,
@@ -455,6 +458,7 @@
 				DB958C9123E70F7300B6373C /* Helper.swift in Sources */,
 				DB35808B23B8EF2100684B11 /* HealthReader.swift in Sources */,
 				DB35804B23B8EE6700684B11 /* ContentView.swift in Sources */,
+				DB9C72CD23EA77C600AA3453 /* DebugView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +740,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -757,7 +761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nakarin.SleepyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

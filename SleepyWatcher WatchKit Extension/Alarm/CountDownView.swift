@@ -25,7 +25,6 @@ struct CountDownView: View {
                 })
             }
         }
-
     }
 }
 
