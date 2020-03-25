@@ -12,17 +12,19 @@ import SwiftUICharts
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                HeartRateView(model: HeartRateModel())
-                SettingCardView()
-            }
-            .frame(width: 370, height: 500)
-            .navigationBarTitle(Text("Sleepy Watcher"))
-            .navigationBarItems(trailing:
-                NavigationLink(destination: DebugView(model: HeartRateModel())) {
-                    Image(systemName: "hammer.fill")
+            ScrollView {
+                VStack {
+                    HeartRateView(model: HeartRateModel())
+                    SettingCardView()
                 }
-            )
+                .frame(width: 370, height: 500)
+                .navigationBarTitle(Text("Sleepy Watcher"))
+                .navigationBarItems(trailing:
+                    NavigationLink(destination: DebugView(model: HeartRateModel())) {
+                        Image(systemName: "hammer.fill")
+                    }
+                )
+            }
         }
     }
 }
@@ -117,7 +119,6 @@ struct HeartRateView: View {
 //                    .onAppear(perform: {
 //                        self.heartRateModel.readHeartRate()
 //                    })
-                GeometryReader { geometry in
                     Button(action: {
                         self.model.readHeartRate()
                     }) {
@@ -127,8 +128,7 @@ struct HeartRateView: View {
                             .frame(width:25, height:25)
                             .foregroundColor(.orange)
                     }
-                    .offset(x: geometry.frame(in: .local).width/2.45, y:-geometry.frame(in: .local).height/2.7)
-                }
+                    .offset(x: geometry.frame(in: .local).width/2.55, y:-geometry.frame(in: .local).height/2.7)
             }
             .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
             .cornerRadius(15)

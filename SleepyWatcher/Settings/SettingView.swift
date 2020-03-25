@@ -25,7 +25,7 @@ struct SettingView: View {
 
     var body: some View {
         VStack {
-            VStack {
+            ScrollView {
                 VStack(alignment: .leading) {
                     Text("Start Time").font(.headline)
                     DatePicker(
@@ -37,11 +37,9 @@ struct SettingView: View {
                     .labelsHidden()
                     .frame(width: 310, height:150)
                 }.padding()
-            }
-            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
-            .cornerRadius(15)
+                .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+                .cornerRadius(15)
 
-            VStack {
                 VStack(alignment: .leading) {
                     Text("End Time").font(.headline)
                     DatePicker(
@@ -53,33 +51,33 @@ struct SettingView: View {
                     .labelsHidden()
                     .frame(width: 310, height:150)
                 }.padding()
-            }
-            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
-            .cornerRadius(15)
+                .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+                .cornerRadius(15)
 
-            VStack {
                 VStack {
-                    Toggle(isOn: $isVibrate) {
-                        Spacer()
-                        Text("Quick Vibration").font(.headline)
-                    }
-                }.padding(8)
-            }
-            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
-            .cornerRadius(15)
+                    VStack {
+                        Toggle(isOn: $isVibrate) {
+                            Spacer()
+                            Text("Quick Vibration").font(.headline)
+                        }
+                    }.padding(8)
+                }
+                .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+                .cornerRadius(15)
 
-            VStack {
                 VStack {
-                    Stepper(value: $napTime, in:1...30) {
-                        Spacer()
-                        Text("Nap Time: \(self.napTime) min").font(.headline)
-                    }
-                }.padding(8)
+                    VStack {
+                        Stepper(value: $napTime, in:1...30) {
+                            Spacer()
+                            Text("Nap Time: \(self.napTime) min").font(.headline)
+                        }
+                    }.padding(8)
+                }
+                .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
+                .cornerRadius(15)
             }
-            .background(Color(#colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1176470588, alpha: 1)))
-            .cornerRadius(15)
         }
-        .padding()
+        .padding([.horizontal])
         .navigationBarTitle("Monitor Setting")
         .navigationBarItems(trailing:
             Button(action: {
